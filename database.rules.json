@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "contacts": {
+      ".read": "auth != null && auth.token.email == 'akai1228@gmail.com'",
+      ".write": "auth != null"
+    },
+    "fcmTokens": {
+      "$userId": {
+        ".read": "auth != null && auth.uid == $userId",
+        ".write": "auth != null && auth.uid == $userId"
+      }
+    }
+  }
+}

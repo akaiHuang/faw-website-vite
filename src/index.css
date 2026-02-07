@@ -1,0 +1,198 @@
+/* Universal FAW Labs - Optimized CSS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-primary: #06b6d4;
+  --color-primary-light: #67e8f9;
+  --color-primary-dark: #0891b2;
+  --color-bg: #050505;
+  --color-bg-secondary: #080808;
+  --color-text: #ffffff;
+  --color-text-muted: #9ca3af;
+  --color-text-dim: #6b7280;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-light: rgba(255, 255, 255, 0.05);
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --transition-smooth: cubic-bezier(0.2, 0.715, 0.205, 0.99);
+}
+
+/* Tailwind 已包含 preflight，只需補充 box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(6, 182, 212, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.08), 0 20px 40px -20px rgba(0,0,0,0.5);
+  transform: translateY(-4px);
+}
+
+/* Loading Screen */
+.loading-screen {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--color-bg);
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loading-screen.fade-out { opacity: 0; visibility: hidden; }
+
+.loading-logo-container { position: relative; width: 180px; height: 180px; }
+@media (min-width: 768px) { .loading-logo-container { width: 216px; height: 216px; } }
+
+.loading-logo-bg, .loading-logo-fill {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+}
+.loading-logo-bg { opacity: 0.25; }
+.loading-logo-fill { clip-path: inset(100% 0 0 0); transition: clip-path 0.1s linear; }
+
+/* Transition Overlay */
+.transition-overlay { position: fixed; inset: 0; z-index: 9998; pointer-events: none; overflow: hidden; }
+
+.transition-overlay .color-block {
+  position: absolute; left: -20%; right: -20%; bottom: 0; height: 150%;
+  opacity: 0.9;
+  background: linear-gradient(to top, #06b6d4 0%, #0891b2 20%, #0e7490 40%, #155e75 60%, #164e63 80%, #050505 100%);
+  transform: translateY(100%) skewY(-15deg);
+}
+
+.transition-overlay.playing .color-block {
+  animation: sweepUp 0.8s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+@keyframes sweepUp {
+  0% { transform: translateY(100%) skewY(-15deg); }
+  100% { transform: translateY(-120%) skewY(-15deg); }
+}
+
+/* Navigation */
+.nav-item-animated {
+  transform: translateY(-100%); opacity: 0;
+  transition: transform 0.5s var(--transition-smooth), opacity 0.5s ease;
+}
+.nav-item-animated.visible { transform: translateY(0); opacity: 1; }
+
+/* S1: Hero */
+.split-text-line { display: block; overflow: hidden; line-height: 1.08; height: 1.12em; }
+.split-text-word { display: inline-block; overflow: hidden; }
+.split-text-char {
+  display: inline-block;
+  transform: translateY(120%);
+  transition: transform 0.8s var(--transition-smooth);
+  will-change: transform;
+}
+.split-text-char.visible { transform: translateY(0); }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 12vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  width: 100%;
+}
+
+@media (min-width: 768px) { .hero-title { font-size: clamp(3rem, 6vw, 4.5rem); } }
+@media (min-width: 1024px) { .hero-title { font-size: clamp(3.5rem, 5.5vw, 5.5rem); } }
+
+.hero-title .gradient-text .split-text-char {
+  background: linear-gradient(120deg, #9dd0f7 0%, #f6fbff 25%, #b6e9f5 50%, #f6fdff 75%, #a9daff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shaderGradientShift 4s ease-in-out infinite;
+}
+
+@keyframes shaderGradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* 高效能視差動畫效果 - 使用 CSS 而非 JS */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 20px 4px rgba(6, 182, 212, 0.2);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Shimmer 光效 */
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.15) 50%, transparent 100%);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Radial gradient 背景 */
+.bg-gradient-radial {
+  background: radial-gradient(ellipse 80% 50% at 50% 30%, var(--tw-gradient-from) 0%, var(--tw-gradient-via) 50%, var(--tw-gradient-to) 100%);
+}
+
+/* S4: Portfolio */
+.portal-card-container { perspective: 800px; }
+.portal-card-inner {
+  position: relative; aspect-ratio: 4/3;
+  transform-style: preserve-3d;
+  border-radius: 12px; overflow: hidden;
+}
+
+/* Scrollbar - Hidden */
+::-webkit-scrollbar { display: none; }
+html { scrollbar-width: none; -ms-overflow-style: none; }
+
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+::selection { background: rgba(6, 182, 212, 0.3); color: var(--color-text); }
+
+/* Slide up animation for modals */
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.2, 0.715, 0.205, 0.99) forwards;
+}
