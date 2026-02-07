@@ -6,9 +6,13 @@ The Universal FAW Labs brand site -- a high-performance web experience built on 
 
 > **Note on AI Collaboration**: This project was co-designed with AI -- after analyzing the creator's technical capabilities and brand strategy needs, AI recommended this as an optimal approach to rapid deployment. Currently in active development.
 
+## 📋 Quick Summary
+
+> ⚡ **FAW Website (Vite Edition)** 是 Universal FAW Labs 的品牌官網，以 Vite 7 為建構工具打造的高效能網頁體驗。🎨 核心視覺採用 ShaderGradient 即時 GPU 渲染的生成式漸層背景，搭配 Three.js 的 3D 圓柱網格與粒子系統，創造出具深度與維度感的頁面體驗。🎯 獨特的受眾自適應內容系統——根據訪客身份（廣告代理商或品牌方）動態呈現不同的能力展示與價值主張。🔧 內建互動式 Shader 編輯器，可即時調整生成式背景參數。🌊 整合 Locomotive Scroll 實現動量式平滑捲動與滾動觸發動畫。🛠️ 技術棧包含 React 19、TypeScript、React Three Fiber、GSAP、Tailwind CSS 4、Firebase 後端與 Cloud Functions。🤖 專案由 AI 協作設計，從技術能力分析到品牌策略需求，展現 AI 輔助快速部署的最佳實踐。適合需要展示創意科技實力的品牌網站場景。
+
 ---
 
-## Why This Exists
+## 💡 Why This Exists
 
 A creative technology studio's website is its most important proof of concept. It cannot simply describe capabilities -- it must demonstrate them. This site merges shader-based generative backgrounds, interactive 3D elements, and narrative-driven content to create a brand experience that communicates FAW Labs' value proposition through the medium itself.
 
@@ -16,7 +20,7 @@ The site addresses two distinct audiences -- agencies seeking an AI growth engin
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 
 ```
 faw-website-vite/
@@ -45,7 +49,7 @@ faw-website-vite/
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -61,7 +65,7 @@ faw-website-vite/
 
 ---
 
-## Key Features
+## 🚀 Key Features
 
 **Generative Shader Backgrounds** -- Real-time GPU-rendered gradient backgrounds using the ShaderGradient library, creating organic, evolving visual environments that respond to scroll position and user interaction.
 
@@ -75,7 +79,7 @@ faw-website-vite/
 
 ---
 
-## Quick Start
+## 🏁 Quick Start
 
 ```bash
 # Install dependencies
@@ -93,7 +97,7 @@ npm run preview
 
 ---
 
-## Author
+## 👤 Author
 
 **Huang Akai (Kai)**
 Founder @ Universal FAW Labs | Creative Technologist | Ex-Ogilvy | 15+ years experience
