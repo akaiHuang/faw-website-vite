@@ -6,6 +6,10 @@ The Universal FAW Labs brand site -- a high-performance web experience built on 
 
 > **Note on AI Collaboration**: This project was co-designed with AI -- after analyzing the creator's technical capabilities and brand strategy needs, AI recommended this as an optimal approach to rapid deployment. Currently in active development.
 
+## About
+
+FAW Website (Vite Edition) 是以 Vite 打造的高效能品牌官網實作，聚焦載入速度、視覺品質與互動表現。適合用於作為品牌網站樣板，或研究以現代前端工具鏈承載著色器/特效等高互動視覺。
+
 ## 📋 Quick Summary
 
 > ⚡ **FAW Website (Vite Edition)** 是 Universal FAW Labs 的品牌官網，以 Vite 7 為建構工具打造的高效能網頁體驗。🎨 核心視覺採用 ShaderGradient 即時 GPU 渲染的生成式漸層背景，搭配 Three.js 的 3D 圓柱網格與粒子系統，創造出具深度與維度感的頁面體驗。🎯 獨特的受眾自適應內容系統——根據訪客身份（廣告代理商或品牌方）動態呈現不同的能力展示與價值主張。🔧 內建互動式 Shader 編輯器，可即時調整生成式背景參數。🌊 整合 Locomotive Scroll 實現動量式平滑捲動與滾動觸發動畫。🛠️ 技術棧包含 React 19、TypeScript、React Three Fiber、GSAP、Tailwind CSS 4、Firebase 後端與 Cloud Functions。🤖 專案由 AI 協作設計，從技術能力分析到品牌策略需求，展現 AI 輔助快速部署的最佳實踐。適合需要展示創意科技實力的品牌網站場景。
